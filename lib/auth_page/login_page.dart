@@ -1,7 +1,9 @@
 import 'package:easy_scaffold/easy_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:sarpras_app_float_techtonics/auth_page/register_page.dart';
+import 'package:sarpras_app_float_techtonics/bottombar.dart';
 import 'package:sarpras_app_float_techtonics/homepage.dart';
+import 'package:sarpras_app_float_techtonics/main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -22,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
     if (nim == '123' && password == '123') {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => const AnimatedBarExample()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

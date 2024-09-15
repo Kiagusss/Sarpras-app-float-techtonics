@@ -1,8 +1,15 @@
 import 'package:easy_scaffold/easy_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sarpras_app_float_techtonics/coba_navbar.dart';
 import 'package:sarpras_app_float_techtonics/detail_barang.dart';
+import 'package:sarpras_app_float_techtonics/detail_peminjaman.dart';
+import 'package:sarpras_app_float_techtonics/pilihan_page/alat_page.dart';
+import 'package:sarpras_app_float_techtonics/pilihan_page/kelas_page.dart';
+import 'package:sarpras_app_float_techtonics/pilihan_page/lab_page.dart';
+import 'package:sarpras_app_float_techtonics/pilihan_page/lapangan_page.dart';
 import 'package:sarpras_app_float_techtonics/profile_page.dart';
+import 'package:sarpras_app_float_techtonics/transaction/transaction_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,8 +38,8 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: const CircleAvatar(
                         radius: 25,
-                        backgroundImage: NetworkImage(
-                            "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                        backgroundImage:
+                            AssetImage("assets/images/people-image.png"),
                       ),
                     ),
                     const Column(
@@ -55,10 +62,15 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    const Icon(
-                      Icons.notifications,
-                      color: Color(0xff2E6EEF),
-                      size: 25,
+                    InkWell(
+                      onTap: () {
+                        openPage(const MyHomePage(), context);
+                      },
+                      child: const Icon(
+                        Icons.notifications,
+                        color: Color(0xff2E6EEF),
+                        size: 25,
+                      ),
                     )
                   ],
                 ),
@@ -101,10 +113,18 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Column(
                       children: [
-                        CircleAvatar(
-                          radius: 32,
-                          backgroundColor: const Color(0xffDBEAFE),
-                          child: Image.asset("assets/images/class-icon.png"),
+                        InkWell(
+                          onTap: () {
+                            openPage(const KelasPage(), context);
+                          },
+                          child: const CircleAvatar(
+                            radius: 32,
+                            backgroundColor: Color(0xffDBEAFE),
+                            child: Icon(
+                              Icons.class_,
+                              color: Color(0xff2E6EEF),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 5,
@@ -116,61 +136,26 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    const Column(
+                    Column(
                       children: [
-                        CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Color(0xffDBEAFE),
-                          child: Icon(
-                            Icons.fitness_center_outlined,
-                            color: Color(0xff2E6EEF),
+                        InkWell(
+                          onTap: () {
+                            openPage(const LapanganPage(), context);
+                          },
+                          child: const CircleAvatar(
+                            radius: 32,
+                            backgroundColor: Color(0xffDBEAFE),
+                            child: Icon(
+                              Icons.fitness_center_outlined,
+                              color: Color(0xff2E6EEF),
+                            ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        CustomText(
+                        const CustomText(
                           text: "Lapangan",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ],
-                    ),
-                    const Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Color(0xffDBEAFE),
-                          child: Icon(
-                            Icons.science_outlined,
-                            color: Color(0xff2E6EEF),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        CustomText(
-                          text: "Lab",
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ],
-                    ),
-                    const Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Color(0xffDBEAFE),
-                          child: Icon(
-                            Icons.handyman_outlined,
-                            color: Color(0xff2E6EEF),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        CustomText(
-                          text: "Alat",
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
                         ),
@@ -178,26 +163,78 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Column(
                       children: [
-                        const CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Color(0xffDBEAFE),
-                          child: Icon(
-                            Icons.fact_check_outlined,
-                            color: Color(0xff2E6EEF),
+                        InkWell(
+                          onTap: () {
+                            openPage(const LabPage(), context);
+                          },
+                          child: const CircleAvatar(
+                            radius: 32,
+                            backgroundColor: Color(0xffDBEAFE),
+                            child: Icon(
+                              Icons.science_outlined,
+                              color: Color(0xff2E6EEF),
+                            ),
                           ),
                         ),
                         const SizedBox(
                           height: 5,
                         ),
+                        const CustomText(
+                          text: "Lab",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
                         InkWell(
-                          onTap: () {},
-                          child: const CustomText(
+                          onTap: () {
+                            openPage(const AlatPage(), context);
+                          },
+                          child: const CircleAvatar(
+                            radius: 32,
+                            backgroundColor: Color(0xffDBEAFE),
+                            child: Icon(
+                              Icons.handyman_outlined,
+                              color: Color(0xff2E6EEF),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const CustomText(
+                          text: "Alat",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        openPage(const TransactionListPage(), context);
+                      },
+                      child: const Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 32,
+                            backgroundColor: Color(0xffDBEAFE),
+                            child: Icon(
+                              Icons.fact_check_outlined,
+                              color: Color(0xff2E6EEF),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          CustomText(
                             text: "Transaksi",
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -296,7 +333,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           ButtonWidget(
                             onPressed: () {
-                              openPage(const DetailBarangPage(), context);
+                              openPage(const DetailPeminjamanPage(), context);
                             },
                             backGroundColor: Colors.white,
                             fontSize: 20,

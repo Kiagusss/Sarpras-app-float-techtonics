@@ -30,8 +30,12 @@ class _OnBoard1State extends State<OnBoard1> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       showSkipButton: true,
-      skip: const Text("Lewati", style: TextStyle(fontSize: 18)),
-      next: const Text("Lanjut", style: TextStyle(fontSize: 18)),
+      skip: const Text(
+        "Lewati",
+        style: TextStyle(fontSize: 18, color: Colors.blue),
+      ),
+      next: const Text("Lanjut",
+          style: TextStyle(fontSize: 18, color: Colors.blue)),
       done: const Text("Mulai",
           style: TextStyle(fontSize: 18, color: Colors.white)),
       doneStyle: TextButton.styleFrom(
@@ -144,7 +148,7 @@ class _OnBoard1State extends State<OnBoard1> {
                     const Padding(
                       padding: EdgeInsets.only(top: 20),
                       child: CustomText(
-                        text: "Selamat Datang di FracTure",
+                        text: "Selamat Datang di FacTure",
                         style: TextStyle(
                             color: Color(0xff2E6EEF),
                             fontSize: 31,

@@ -2,6 +2,7 @@ import 'package:easy_scaffold/easy_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sarpras_app_float_techtonics/form_page.dart';
 
 class DetailBarangPage extends StatefulWidget {
   const DetailBarangPage({super.key});
@@ -267,21 +268,26 @@ class _DetailBarangPageState extends State<DetailBarangPage> {
               width: 20,
             ),
             Expanded(
-              child: Container(
-                  height: 50,
-                  padding: const EdgeInsets.symmetric(),
-                  decoration: const BoxDecoration(
-                    color: Color(0xff2E6EEF),
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                  ),
-                  child: const Center(
-                    child: CustomText(
-                      text: "Pinjam",
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+              child: InkWell(
+                onTap: () {
+                  openPage(const FormPage(), context);
+                },
+                child: Container(
+                    height: 50,
+                    padding: const EdgeInsets.symmetric(),
+                    decoration: const BoxDecoration(
+                      color: Color(0xff2E6EEF),
+                      borderRadius: BorderRadius.all(Radius.circular(25)),
                     ),
-                  )),
+                    child: const Center(
+                      child: CustomText(
+                        text: "Pinjam",
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+              ),
             ),
           ],
         ),

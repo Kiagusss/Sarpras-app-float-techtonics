@@ -15,18 +15,8 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: InkWell(
-            onTap: () {
-              backPage(context);
-            },
-            child: const Icon(
-              Icons.arrow_back_ios,
-              size: 25,
-            ),
-          ),
-        ),
+        leading: null,
+        automaticallyImplyLeading: false,
         title: const CustomText(
           text: "Profile",
           fontSize: 20,
